@@ -4,6 +4,39 @@
 {% block content %}
 {{block.super}}
 
+<h4>Projects</h4>
 
+<br>
+
+<div class="row">
+
+ <!-- Looping through news   -->
+ {% for project in projects %}
+
+
+
+   <!-- displaying News articles -->
+   <div class="col s12 m3 l3">
+     <div class="card">
+         <div class="container">
+                <div class="card-title">
+                        {{project.title}}
+                    </div>
+                    <div class="card-content">
+                        {{project.post}}
+                    </div>
+         </div>
+     </div>
+   </div>
+
+
+
+ {% empty %}
+ <div class="row">
+   <h2 class="text-center">There No Project Items</h2>
+ </div>
+ {% endfor %}
+
+</div>
 
 {% endblock %}

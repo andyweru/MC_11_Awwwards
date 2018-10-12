@@ -26,3 +26,14 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save_project(self):
+        self.save()
+
+    def delete_project(self):
+        self.delete()
+
+    @classmethod
+    def display_projects(cls):
+        projects=cls.objects.all()
+        return projects
