@@ -23,6 +23,8 @@ class Project(models.Model):
     editor = models.ForeignKey(Editor)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
+    project_image = models.ImageField(upload_to = 'images/', blank=True)
+
 
     def __str__(self):
         return self.title
