@@ -8,3 +8,11 @@ from .models import *
 def index(request):
     projects = Project.display_projects()
     return render(request, "index.html", {"projects":projects[::-1]})
+
+
+def project(request,project_id):
+    try:
+        project = Project.objects.get(id = project_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"project.html", {"project":project})

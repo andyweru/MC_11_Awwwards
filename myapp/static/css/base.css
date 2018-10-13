@@ -14,6 +14,12 @@ body{
     height: 700px;
 }
 
+.showcase {
+    height: 700px;
+    background-color: #000;
+    color: #fff;
+}
+
 #display-text {
     position: relative;
     top: 100px;
@@ -31,4 +37,18 @@ body{
 
 .spacer{
     height: 50px;
+}
+
+
+/* projects page detail */
+.project-detail{
+    background-color: #fff;
+    color: #000;
+    height: 1200px;
+}
+
+.project-art{
+    float: right;
+    width: 500px;
+    height: 500px;
 }
