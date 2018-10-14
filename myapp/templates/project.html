@@ -24,6 +24,20 @@
                                     <div class="row">
                                         <p>Posted {{project.pub_date|timesince}} by {{project.editor.first_name}}</p>
                                     </div>
+
+                                    <br><br>
+
+                                    <div class="row">
+                                        <p>Link to live site:  </p>
+                                    </div>
+
+
+                                    <br>
+                                    <br>
+
+                                    <div class="row">
+                                        <h3>Rating: 0</h3>
+                                    </div>
                         </div>
                         <div class="col m6">
                                 <img src="{{project.project_image.url}}"  class="img-responsive project-art" alt="">
@@ -42,9 +56,31 @@
                 <div class="container">
                     <h3 class="center-align">Screenshots</h3>
                     <br><br>
+
+                    <img class="screenshot" src="../static/img/template.svg" alt="">
+
+                    <br><br><br>
+
+                    <img class="screenshot" src="../static/img/template2.svg" alt="">
+
+                    <br><br><br>
+
+                    <img class="screenshot" src="../static/img/template3.svg" alt="">
+
+                    <br><br>
+
                 </div>
             
              </div>
+
+             <div class="container-fluid white-text">
+                    <div class="container">
+                        <h3 class="center-align">Reviews</h3>
+                        <br><br>
+    
+                    </div>
+                
+                 </div>
 </div>
 
  {% endblock %}
