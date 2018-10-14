@@ -1,0 +1,42 @@
+
+{% extends 'registration/base.html' %}{% load bootstrap3 %}
+{% block content %}
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                {% if form.errors %}
+                <p>Password or Email incorrect </p>
+                {% endif %}
+                 <div class="panel panel-default">
+                     <div class="panel-body">
+
+                        <h1>Awwwards</h1>
+
+                        <br><br>
+
+                        <div class="card">
+                            <div class="card-content">
+                                <h5>Sign In</h5>
+                            </div>
+                            <div class="card-content">
+                                    <form action="/accounts/login/" method="post">
+                                        {% csrf_token %}
+                                        {% bootstrap_form form%}
+
+                                        <br><br>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                                            <a href="/accounts/register">&emsp; Don't have an account?  Create a new account</a>
+                                        </div>
+                                        <input type="hidden" name="next" value="">
+                                    </form>
+                            </div>
+                        </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -15,6 +15,8 @@ import django_heroku
 import dj_database_url
 from decouple import config,Csv
 
+from django.core.urlresolvers import reverse_lazy
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -35,6 +37,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap3',
     'myapp.apps.MyappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -163,3 +166,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+
+LOGIN_REDIRECT_URL=reverse_lazy('index')
+LOGIN_URL=reverse_lazy('login')
+LOGOUT_URL=reverse_lazy('logout')

@@ -9,18 +9,18 @@
                   <ul id="nav-mobile" class="right hide-on-med-and-down">
 
 
-                      {% if user.is_authenticated %}
-                          <li><a href="/logout">Logout</a></li>
-                      {% else %}
-                          <li>
-                          <a href="/accounts/login">Login</a>
-                          </li>
-          
-                      {% endif %}
+                        {% if user.is_authenticated %}
+                            <li><a href="/logout">Logout</a></li>
+                        {% else %}
+                            <li>
+                            <a href="/accounts/login">Login</a>
+                            </li>
+            
+                        {% endif %}
 
-                  <li class="white"><a href="#" class=" black-text">Submit Your Website</a></li>
-                  
-                </ul>
+                    <li class="white"><a href="#" class=" black-text">Submit Your Website</a></li>
+                    
+                  </ul>
                 </div>
         </nav>
 </div>
