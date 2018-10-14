@@ -10,6 +10,16 @@ def index(request):
     return render(request, "index.html", {"projects":projects[::-1]})
 
 def search(request):
+
+    if 'project' in request.GET and request.GET["project"]:
+        search_term = request.GET.get("project")
+        searched_projects = Project.find_project(search_term)
+        message = f"{search_term}"
+        return render(request, 'search.html',{"message":message,"projects": searched_projects})
+    else:
+        message = "Project does not exist"
+        return render(request, 'search.html',{"message":message})
+
     return render(request, "search.html")
 
 

@@ -5,13 +5,66 @@
             <br>
             <br>
             <br>
-             <form class="col s12">
+             <form class="col s12" role="search" action="{% url 'search' %}>
                     <div class="row">
                       <div class="input-field col s12">
-                        <input id="icon_prefix" type="text" class="validate white-text">
+                        <input name="project" id="icon_prefix" type="text" class="validate white-text">
                         <label for="icon_prefix">Search Projects</label>
                       </div>
                     </div>
             </form>
+    </div>
+
+    <br><br>
+
+    <div class="container">
+
+      <div class="row">
+        {% if projects %}
+          <h6>Found {{ projects|length }} {{message}}</h6>
+        {% else %}
+          <h6> Found 0 projects with such name.</h6>
+          <p> {{message}}</p>
+        {% endif %}
+    
+      </div>
+    
+      <div class="row">
+    
+      {% if projects %}
+        {% for project in projects %}
+          <div class="col-sm-6 col-md-3">
+              <div class="col s12 m3 l3">
+                  <a href="/project/{{project.id}}"><div class="card mini-projects">
+                       <div class="container-fluid">
+                              <div class="card-content">
+                                  <div class="container">
+                                      <span class="card-title center-align"><h6>{{project.title}}</h6></span>
+                                  </div>
+                              </div>
+                              <div class="card-image">
+                                  <img class="img" src="{{project.project_image.url}}" alt="">
+                              </div>
+                              <div class="card-content spacer">
+                                <br>
+                                <br>
+                                <br>
+                              </div>  
+                              <div class="card-content">
+                                  {{project.post}}
+          
+                                  <br>
+          
+                                  <br>
+          
+                                  Posted by {{project.editor}} on {{project.pub_date}}
+                              </div>
+                       </div>
+                   </div></a> 
+                 </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+      </div>
     </div>
  {% endblock %}
