@@ -9,6 +9,9 @@ def index(request):
     projects = Project.display_projects()
     return render(request, "index.html", {"projects":projects[::-1]})
 
+def search(request):
+    return render(request, "search.html")
+
 
 def project(request,project_id):
     try:
