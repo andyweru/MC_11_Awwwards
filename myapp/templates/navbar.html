@@ -8,7 +8,7 @@
                   <a href="{% url 'index' %}" class="brand-logo center">Awwwards</a>
                   <ul id="nav-mobile" class="right hide-on-med-and-down">
                     {% if user.is_authenticated %}
-                        <li><a class="btn black white-text" href="#">{{user.username}}</a></li>
+                        <li><a class="btn black white-text" href="{% url 'myprofile' %}">{{user.username}}</a></li>
                         <li><a class="btn" href="/logout">logout</a></li>
                     {% else %}
                         <li>

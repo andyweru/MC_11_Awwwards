@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http  import HttpResponse
 from django.shortcuts import render
 from .models import *
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -29,3 +31,9 @@ def project(request,project_id):
     except DoesNotExist:
         raise Http404()
     return render(request,"project.html", {"project":project})
+
+
+@login_required(login_url='/accounts/login/')
+def myprofile(request):
+    current_user = request.user
+    return render(request, "myprofile.html")
