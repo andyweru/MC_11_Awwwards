@@ -3,6 +3,7 @@ from django.http  import HttpResponse
 from django.shortcuts import render
 from .models import *
 from django.contrib.auth.decorators import login_required
+from .forms import NewProjectForm
 
 
 
@@ -37,3 +38,17 @@ def project(request,project_id):
 def myprofile(request):
     current_user = request.user
     return render(request, "myprofile.html")
+
+
+@login_required(login_url='/accounts/login/')
+def upload(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.editor = current_user
+            project.save()
+    else:
+        form = NewProjectForm()
+    return render(request, 'upload.html', {"form": form})

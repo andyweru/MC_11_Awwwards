@@ -37,6 +37,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
+    'tinymce',
     'bootstrap3',
     'myapp.apps.MyappConfig',
     'django.contrib.admin',
