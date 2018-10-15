@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect
 from .models import *
 from django.contrib.auth.decorators import login_required
 from .forms import NewProjectForm
@@ -49,6 +49,7 @@ def upload(request):
             project = form.save(commit=False)
             project.editor = current_user
             project.save()
+        return redirect('index')
     else:
         form = NewProjectForm()
     return render(request, 'upload.html', {"form": form})
