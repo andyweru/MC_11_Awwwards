@@ -47,3 +47,12 @@ class Project(models.Model):
     def find_project(cls, search_term):
         projects=cls.objects.filter(title__icontains=search_term)
         return projects
+
+
+class Comment(models.Model):
+    comment = models.CharField(max_length =80,null=True)
+    user = models.ForeignKey(User,null=True)
+    post = models.ForeignKey(Project,related_name='comments',null=True)
+
+    def __str__(self):
+        return self.comment

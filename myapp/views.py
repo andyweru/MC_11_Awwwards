@@ -3,7 +3,7 @@ from django.http  import HttpResponse
 from django.shortcuts import redirect
 from .models import *
 from django.contrib.auth.decorators import login_required
-from .forms import NewProjectForm
+from .forms import *
 
 
 
@@ -27,11 +27,12 @@ def search(request):
 
 
 def project(request,project_id):
+    comment_form = CommentForm(request.POST)
     try:
         project = Project.objects.get(id = project_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,"project.html", {"project":project})
+    return render(request,"project.html", {"project":project, "comment_form":comment_form})
 
 
 @login_required(login_url='/accounts/login/')
@@ -53,3 +54,16 @@ def upload(request):
     else:
         form = NewProjectForm()
     return render(request, 'upload.html', {"form": form})
+
+@login_required
+def comment(request,id):
+    upload = Project.objects.get(id=id)
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.user = request.user
+            comment.post= upload
+            comment.save()
+            print(comment)
+        return redirect('/')

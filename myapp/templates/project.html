@@ -1,4 +1,4 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%}{% load bootstrap3   %}
 
  {% block content %}
 
@@ -78,14 +78,32 @@
             
              </div>
 
-             <div class="container-fluid white-text">
+             <br><br>
+
+             <div class="container-fluid">
                     <div class="container">
                         <h3 class="center-align">Reviews</h3>
                         <br><br>
+
+                        {% for comm in project.comments.all %}
+                        <p><strong>{{ comm.user.username }}</strong>:{{comm.comment}} </p>
+                        {% endfor %}
+
+                        <br><br>
+                        <form id='comment' action="/comment/{{project.id}}" method="post" enctype="multipart/form-data">
+                            {%csrf_token%} {% bootstrap_form comment_form %}
+                            <input type="submit" class="btn btn-primary btn-sm" value="comment">
+                        </form>
     
                     </div>
                 
                  </div>
+
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
 </div>
 
  {% endblock %}
