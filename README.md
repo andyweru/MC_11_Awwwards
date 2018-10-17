@@ -2,7 +2,7 @@
 Independent Project: Django Week 3 - Django Application that is a clone of Awwards
 
 ## Link to deployed site
-https://instaclown.herokuapp.com/
+https://awards-wesh.herokuapp.com/
 
 ## Author(s)
 Andrew Waweru
