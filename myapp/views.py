@@ -66,4 +66,4 @@ def comment(request,id):
             comment.post= upload
             comment.save()
             print(comment)
-        return redirect('/')
+        return redirect('project', id)
