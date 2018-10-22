@@ -28,7 +28,7 @@ $ sudo apt install python3-pip
 Clone the repository by running the command
 
 ```sh
-$ git clone https://github.com/andyweru/MC_11_Insta_Clone.git
+$ git clone https://github.com/andyweru/MC_11_Awwwards.git
 ```
 
 Navigate into your directory and install a virtual environment using the following command
